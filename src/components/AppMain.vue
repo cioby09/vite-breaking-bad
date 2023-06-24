@@ -1,10 +1,13 @@
 <script>
 import AppLoader from './AppLoader.vue';
+import AppCard from './AppCard.vue';
 import { store } from "../store";
+
 export default {
     name: "AppMain",
     components: {
-        AppLoader
+        AppLoader,
+        AppCard
     },
     data() {
         return {
@@ -29,6 +32,11 @@ export default {
             <div class="card-container">
                 <h6 class="found text-white ps-3">Found 39 cards</h6>
                 <AppLoader v-if="store.loading"/>
+                <div class="row row-cols-5 row-gap-3">
+                    <div class="col" v-for="card in store.cards">
+                        <AppCard :card="card"/>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -36,8 +44,6 @@ export default {
 
 <style scoped lang="scss">
     main {
-        // debug
-        height: calc(100vh - 70px);
         background-color: rgb(212, 143, 56);
         .container-sm {
             width: 80%;
@@ -48,8 +54,6 @@ export default {
         }
         .container {
             width: 80%;
-            // debug
-            height: calc(100vh - 150px);
             background-color: white;
             .card-container {
                 background-color: white;
