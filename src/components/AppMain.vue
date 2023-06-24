@@ -19,22 +19,13 @@ export default {
 
 <template>
     <main>
-        <div class="container-sm">
-            <select class="select-type p-2 m-4" aria-label="Default select example">
-                <option selected>Choose!</option>
-                <option value="Alien">Alien</option>
-                <option value="Noble Knight">Noble Knight</option>
-                <option value="Melodious">Melodious</option>
-                <option value="Archfiend">Archfiend</option>
-            </select>
-        </div>
         <div class="container p-5">
             <div class="card-container">
                 <h6 class="found text-white ps-3">Found 39 cards</h6>
                 <AppLoader v-if="store.loading"/>
                 <div class="row row-cols-5 row-gap-3">
-                    <div class="col" v-for="card in store.cards">
-                        <AppCard :card="card"/>
+                    <div class="col" v-for="element in store.cards">
+                        <AppCard :card="element"/>
                     </div>
                 </div>
             </div>
@@ -45,13 +36,6 @@ export default {
 <style scoped lang="scss">
     main {
         background-color: rgb(212, 143, 56);
-        .container-sm {
-            width: 80%;
-            select {
-                border-radius: 5px;
-                width: 160px;
-            }
-        }
         .container {
             width: 80%;
             background-color: white;
