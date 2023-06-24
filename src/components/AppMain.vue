@@ -21,7 +21,7 @@ export default {
     <main>
         <div class="container p-5">
             <div class="card-container">
-                <h6 class="found text-white ps-3">Found 39 cards</h6>
+                <h6 class="found text-white ps-3">Found {{ store.meta.total_rows }} cards</h6>
                 <AppLoader v-if="store.loading"/>
                 <div class="row row-cols-5 row-gap-3">
                     <div class="col" v-for="element in store.cards">

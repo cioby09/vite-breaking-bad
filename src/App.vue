@@ -41,6 +41,7 @@ export default {
         params
       }).then(resp => {
         this.store.cards = resp.data.data;
+        this.store.meta = resp.data.meta;
       }).catch(error => {
         console.log(error);
       }).finally(() => {
